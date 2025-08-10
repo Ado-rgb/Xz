@@ -1,9 +1,0 @@
-{
-  "name": "adonixup",
-  "version": "1.0.0",
-  "type": "module",
-  "dependencies": {
-    "formidable": "^3.5.0",
-    "uuid": "^9.0.0"
-  }
-}
