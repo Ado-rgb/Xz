@@ -14,8 +14,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Solo POST permitido' });
   }
 
-  const uploadsDir = path.join(process.cwd(), '/public/files');
-  if (!fs.existsSync(uploadsDir)) fs.mkdirSync(uploadsDir, { recursive: true });
+  const uploadsDir = '/tmp'; // ✅ Permitido en Vercel
 
   const form = new IncomingForm({ uploadDir: uploadsDir, keepExtensions: true });
 
@@ -31,7 +30,8 @@ export default async function handler(req, res) {
 
     fs.renameSync(file.filepath, newPath);
 
-    const url = `${req.headers.origin}/files/${newFilename}`;
-    res.status(200).json({ success: true, url });
+    // Devuelve una URL API que servirá el archivo desde /tmp
+    const fileUrl = `${req.headers.origin}/api/file/${newFilename}`;
+    res.status(200).json({ success: true, url: fileUrl });
   });
 }
