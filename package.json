@@ -1,0 +1,14 @@
+{
+  "name": "adonix-terminal",
+  "version": "1.0.0",
+  "description": "Terminal web interactiva con Node.js y Git",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-pty": "^1.0.0",
+    "ws": "^8.13.0"
+  }
+}
